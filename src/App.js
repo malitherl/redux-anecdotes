@@ -3,7 +3,7 @@ import { vote, createNew } from './reducers/anecdoteReducer'
 import { useState } from 'react'
 const App = () => {
   const dispatch = useDispatch()
-  const anecdotes = useSelector(state => state)
+  const anecdotes = useSelector(state => state.sort((a,b) => b.votes - a.votes ))
   const [quote, setQuote] = useState('');
   const addVote = (id) => {
     console.log(id)
