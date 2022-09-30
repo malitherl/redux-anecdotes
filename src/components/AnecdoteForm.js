@@ -1,12 +1,15 @@
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 import { createNew } from '../reducers/anecdoteReducer'
+import { messageChange, messageDefault } from '../reducers/notificationReducer'
 const AnecdoteForm = () => {
   const [quote, setQuote] = useState('');
   const dispatch = useDispatch() 
   const addAnecdote = (event) => {
     event.preventDefault()
     dispatch(createNew(quote))
+    dispatch(messageChange(`You have added ${quote}`))
+    setTimeout(() => dispatch(messageDefault('')), 5000)
     setQuote('')
   }
 

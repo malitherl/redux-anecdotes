@@ -6,11 +6,16 @@ const Notification = () => {
     padding: 10,
     borderWidth: 1
   }
+
+  
+
+
+
+
   return (
-    <div style={style}>
-      {notification.map(message => 
-        <p>{message.content}</p>
-      )} 
+    <div >
+      { notification !== null && notification.notification && <div style={style}> {notification.notification} </div> }
+     
     </div>
   )
 }

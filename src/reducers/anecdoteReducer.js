@@ -46,30 +46,6 @@ const voteSlice = createSlice({
 
 
 
-console.log(initialState)
-
-// const voteReducer = (state = initialState, action) => {
-//   console.log('state now: ', state)
-//   console.log('action', action)
-//   switch(action.type){
-//     case 'VOTE': 
-//     const id = action.id.id
-//     console.log(state)
-//     const anecdoteToChange = state.find(element => element.id === id)
-//     const updatedAnecdote= { 
-//       ...anecdoteToChange, 
-//       votes: anecdoteToChange.votes++
-//     }
-//     console.log(updatedAnecdote)
-//     return state.map(a => a.id !== action.id ? a : updatedAnecdote)
-//     case 'NEW': 
-//     const anecdote = action.anecdote
-//     return [...state, anecdote]
-//     default: 
-//     return state
-//   }
-// }
-
 export const { createNew, vote } = voteSlice.actions
 export default voteSlice.reducer 
 

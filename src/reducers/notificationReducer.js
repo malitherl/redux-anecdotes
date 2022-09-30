@@ -1,16 +1,28 @@
-const initialState = ''
+
+const initialState = null
 
 const notificationReducer = (state = initialState, action) => {
     switch(action.type){
-        case 'ADD': 
-        const quote = action.quote 
-        return `You have added ${quote}`
-        case 'LIKE':
-        const liked = action.quote 
-        return `You have liked ${liked}`
+        case 'SET_MESSAGE': 
+        return `${action.message}`
         default: 
-        return state
+        return initialState
     }
 }
 
-export default notificationReducer
+
+export const messageChange = (message) => {
+    return {
+        type:'SET_MESSAGE',
+        message
+    }
+}
+
+export const messageDefault = () => {
+    return {
+        type: ''
+    }
+}
+
+
+export default notificationReducer 
