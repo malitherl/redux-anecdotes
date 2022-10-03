@@ -1,28 +1,24 @@
 
-const initialState = null
 
-const notificationReducer = (state = initialState, action) => {
-    switch(action.type){
-        case 'SET_MESSAGE': 
-        return `${action.message}`
-        default: 
-        return initialState
+export const setNotification = (anecdote, time) => {
+    return dispatch => {
+        const timeInMiliseconds = time * 1000
+        dispatch(messageChange(anecdote))
+        setTimeout(() => {
+            dispatch(messageChange(''))
+        }, timeInMiliseconds)
     }
 }
 
-
-export const messageChange = (message) => {
-    return {
-        type:'SET_MESSAGE',
-        message
+const notificationSlice = createSlice({
+    name: "notificaitons",
+    initialState: '',
+    reducers : {
+        messageChange: (state, action) => {
+            return action.payload
+        }
     }
-}
-
-export const messageDefault = () => {
-    return {
-        type: ''
-    }
-}
+})
 
 
-export default notificationReducer 
+export default notificationSlice.reducer  

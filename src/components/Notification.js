@@ -7,11 +7,6 @@ const Notification = () => {
     borderWidth: 1
   }
 
-  
-
-
-
-
   return (
     <div >
       { notification !== null && notification.notification && <div style={style}> {notification.notification} </div> }

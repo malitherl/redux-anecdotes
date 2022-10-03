@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
-import { messageChange, messageDefault } from '../reducers/notificationReducer'
+import { setNotification } from '../reducers/notificationReducer'
 import {createNew } from '../reducers/anecdoteReducer'
-import anecdoteService from '../../services/anecdote'
+import anecdoteService from '../services/anecdote'
 const AnecdoteForm = () => {
   const [quote, setQuote] = useState('');
   const dispatch = useDispatch() 
@@ -10,14 +10,11 @@ const AnecdoteForm = () => {
     event.preventDefault()
     const newAnecdote = await anecdoteService.createNew(quote)
     dispatch(createNew(newAnecdote))
-    dispatch(messageChange(`You have added ${quote}`))
-    setTimeout(() => dispatch(messageDefault('')), 5000)
+    dispatch(setNotification(`You have added ${quote}`, 5))
     setQuote('')
   }
 
   const handleChange = (event) => setQuote(event.target.value)
-
-
 
     return(
         <div>
