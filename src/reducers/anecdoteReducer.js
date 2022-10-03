@@ -10,18 +10,17 @@ const anecdotesAtStart = [
 
 const getId = () => (100000 * Math.random()).toFixed(0)
 
-const asObject = (anecdote) => {
-  return {
-    content: anecdote,
-    id: getId(),
-    votes: 0
-  }
-}
+// const asObject = (anecdote) => {
+//   return {
+//     content: anecdote,
+//     id: getId(),
+//     votes: 0
+//   }
+// }
 
-const initialState = anecdotesAtStart.map(asObject)
 const voteSlice = createSlice({
   name: "votes", 
-  initialState,
+  initialState: [],
   reducers: {
     vote(state, action) {
       const id = action.payload
@@ -39,6 +38,12 @@ const voteSlice = createSlice({
         votes: 0,
         id: getId()
       })
+    },
+    appendAnecdote(state, action) {
+      state.push(action.payload)
+    },
+    setAnecdotes(state, action) {
+      return action.payload
     }
   },
 })
@@ -46,6 +51,6 @@ const voteSlice = createSlice({
 
 
 
-export const { createNew, vote } = voteSlice.actions
+export const { createNew, vote, appendAnecdote } = voteSlice.actions
 export default voteSlice.reducer 
 
