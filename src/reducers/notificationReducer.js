@@ -11,7 +11,7 @@ export const setNotification = (anecdote, time) => {
 }
 
 const notificationSlice = createSlice({
-    name: "notificaitons",
+    name: "notifications",
     initialState: '',
     reducers : {
         messageChange: (state, action) => {

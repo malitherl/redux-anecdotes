@@ -33,8 +33,8 @@ export const updateVote = (anecdote, id) => {
   }
 }
 
-const voteSlice = createSlice({
-  name: "votes", 
+const anecdoteSlice = createSlice({
+  name: "anecdotes", 
   initialState: [],
   reducers: {
     vote(state, action) {
@@ -58,6 +58,6 @@ const voteSlice = createSlice({
 
 
 
-export const { createNew, vote, appendAnecdote } = voteSlice.actions
-export default voteSlice.reducer 
+export const { createNew, vote, appendAnecdote } = anecdoteSlice.actions
+export default anecdoteSlice.reducer 
 
